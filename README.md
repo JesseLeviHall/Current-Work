@@ -4,7 +4,7 @@ This is the development foundations of an IoT Smart Building Mobile App, built w
 
 ## Purpose of App:
 
-Our app is designed to make life in an apartment complex easier and more convenient. With just a few taps on your phone, you can gain access to all the facilities in your complex, unlock your apartment door, control your lighting, and pay your rent. It's the ultimate tool for smart living in an apartment complex!
+Our app is designed to make life in an apartment complex easier, more modern, and secure. With just a few taps on your phone, you can gain access to all the facilities in your complex, unlock your apartment door, control your lighting, and pay your rent. It's the ultimate tool for smart living in an apartment complex!
 
 <div align="center">Home Screen and Dashboard: </div>
 <br/>
@@ -77,22 +77,6 @@ Our app is designed to make life in an apartment complex easier and more conveni
 ### JavaScript/React-Native
 
 ```
-//update profile info
-export const updateProfileInfo = async (updateData) => {
-	try {
-		const { status, data } = await API.put('/api/profile', updateData);
-		if (status === 200) {
-			return data;
-		} else {
-			console.log(`Error: ${status}`);
-			return null;
-		}
-	} catch (error) {
-		console.log(error.message);
-		return;
-	}
-};
-
 //get profile photo
 export const getProfilePhoto = async () => {
 	try {
@@ -109,6 +93,23 @@ export const getProfilePhoto = async () => {
 		console.log(error.message);
 	}
 };
+
+<ImageBackground className='flex-1' source={bg}>
+				<HeaderComponent />
+				<MenuTabs />
+				<View className='flex-1 items-center justify-center'>
+					<View>
+						{component === 'Home' && <Home />}
+						{component === 'ComplexAccess' && <ComplexAccess />}
+						{component === 'DoorLock' && <DoorLock />}
+						{component === 'Thermostat' && <Thermostat />}
+						{component === 'Lighting' && <Lighting />}
+						{component === 'SecurityCam' && <SecurityCam />}
+						{component === 'Appliances' && <Appliances />}
+					</View>
+				</View>
+				<FootBar />
+			</ImageBackground>
 
 ```
 
