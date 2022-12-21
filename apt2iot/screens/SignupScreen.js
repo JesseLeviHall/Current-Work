@@ -127,7 +127,12 @@ const SignupScreen = () => {
 				</ImageBackground>
 			)}
 			{loading && (
-				<ActivityIndicator animating={true} color={MD2Colors.red800} />
+				<ActivityIndicator
+					className='flex-1 justify-center items-center'
+					size={'large'}
+					animating={true}
+					color={MD2Colors.red800}
+				/>
 			)}
 		</>
 	);
