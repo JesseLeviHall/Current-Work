@@ -1,10 +1,10 @@
-# This is what I am working on
+# My Current Work:
 
-This is the development foundations of an IoT Smart Building Mobile App, built with Reat-Native, Node.js, MySQL
+This is the development foundations of an IoT Smart Building Mobile App, built with Reat-Native, Node.js, Sequelize ORM, MySQL
 
-## General info
+## Purpose of App:
 
-This bug tracker is an easy-to-use web application useful in order to capture and track public feedback concerning problems encountered on websites. It provides a way to manage bugs for any medium or small scale team managing multiple websites. This is a unique site that also integrates data charts to better visualize team and tech stack performances.
+Our app is designed to make life in an apartment complex easier and more convenient. With just a few taps on your phone, you can gain access to all the facilities in your complex, unlock your apartment door, control your lighting, and pay your rent. It's the ultimate tool for smart living in an apartment complex!
 
 <div align="center">Home Screen and Dashboard: </div>
 <br/>
