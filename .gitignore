@@ -1,0 +1,6 @@
+apt2iot/assets
+
+apt2iotserver/services/jwt.config.js
+apt2iotserver/.env
+apt2iotserver/uploads
+apt2iotserver/node_modules
