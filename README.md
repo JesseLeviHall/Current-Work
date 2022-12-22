@@ -41,7 +41,7 @@ Our app is designed to make life in an apartment complex easier, more modern, an
 ### Node.js/Express.js
 
 ```Node
-  const updateProfilePhoto = async (req, res) => {
+ const updateProfilePhoto = async (req, res) => {
 	const token = req.headers.authorization.split(' ')[1];
 	const decoded = jwt.verify(token, jwtConfig.secret);
 	const id = decoded.id;
@@ -122,7 +122,7 @@ export const getProfilePhoto = async () => {
 
 ## Status
 
-The project is in early development.
+The project is in early development. Next steps are to build forgot/reset password API, Settings Screen, and then begin testing IoT connections and building functionality.
 
 ## Contact
 
