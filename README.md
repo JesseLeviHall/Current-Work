@@ -98,7 +98,7 @@ export const getProfilePhoto = async () => {
 	<HeaderComponent />
 		<MenuTabs />
 			<View className='flex-1 items-center justify-center'>
-				<View>
+				<ScrollView>
 					{component === 'Home' && <Home />}
 					{component === 'ComplexAccess' && <ComplexAccess />}
 					{component === 'DoorLock' && <DoorLock />}
@@ -106,7 +106,7 @@ export const getProfilePhoto = async () => {
 					{component === 'Lighting' && <Lighting />}
 					{component === 'SecurityCam' && <SecurityCam />}
 					{component === 'Appliances' && <Appliances />}
-				</View>
+				</ScrollView>
 			</View>
 		<FootBar />
 </ImageBackground>
