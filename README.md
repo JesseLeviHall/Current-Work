@@ -95,21 +95,21 @@ export const getProfilePhoto = async () => {
 };
 
 <ImageBackground className='flex-1' source={bg}>
-				<HeaderComponent />
-				<MenuTabs />
-				<View className='flex-1 items-center justify-center'>
-					<View>
-						{component === 'Home' && <Home />}
-						{component === 'ComplexAccess' && <ComplexAccess />}
-						{component === 'DoorLock' && <DoorLock />}
-						{component === 'Thermostat' && <Thermostat />}
-						{component === 'Lighting' && <Lighting />}
-						{component === 'SecurityCam' && <SecurityCam />}
-						{component === 'Appliances' && <Appliances />}
-					</View>
+	<HeaderComponent />
+		<MenuTabs />
+			<View className='flex-1 items-center justify-center'>
+				<View>
+					{component === 'Home' && <Home />}
+					{component === 'ComplexAccess' && <ComplexAccess />}
+					{component === 'DoorLock' && <DoorLock />}
+					{component === 'Thermostat' && <Thermostat />}
+					{component === 'Lighting' && <Lighting />}
+					{component === 'SecurityCam' && <SecurityCam />}
+					{component === 'Appliances' && <Appliances />}
 				</View>
-				<FootBar />
-			</ImageBackground>
+			</View>
+		<FootBar />
+</ImageBackground>
 
 ```
 
