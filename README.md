@@ -43,9 +43,9 @@ Our app is designed to make life in an apartment complex easier, more modern, an
 ```Node
  const updateProfilePhoto = async (req, res) => {
 	const token = req.headers.authorization.split(' ')[1];
-	const decoded = jwt.verify(token, jwtConfig.secret);
-	const id = decoded.id;
+	const id = jwt.verify(token, jwtConfig.secret).id;
 	const photo = req.file.filename;
+
 	if (id) {
 		try {
 			// Find or create a profile with the given id
