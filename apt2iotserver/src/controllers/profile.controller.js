@@ -1,4 +1,3 @@
-const express = require('express');
 const Profile = require('../models/profile.model');
 const { sequelize } = require('../services/mysql');
 const jwt = require('jsonwebtoken');
