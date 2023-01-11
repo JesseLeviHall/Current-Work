@@ -26,11 +26,15 @@ export const getClientToken = async () => {
 		if (parsedUser) {
 			const expirationTime = new Date(parsedUser.exp * 1000);
 			const currentTime = new Date();
-			expirationTime >= currentTime ? false : true;
+			const valid = expirationTime <= currentTime ? false : true;
+			if (valid) {
+				return parsedUser;
+			} else {
+				return false;
+			}
 		}
-		return parsedUser;
-	} catch (error) {
-		console.log(error);
+	} catch (err) {
+		console.log(err);
 	}
 };
 

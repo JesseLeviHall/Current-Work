@@ -27,6 +27,10 @@ export const AuthProvider = ({ children }) => {
 					setIsAuthorized(true);
 					setToken(token);
 					console.log('security token valid', token);
+				} else {
+					await api.logout();
+					setIsAuthorized(false);
+					setLoading(false);
 				}
 			} catch (err) {
 				setLoading(false);
