@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
-import { Appbar } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import {
 	Button,
@@ -11,6 +10,7 @@ import {
 	Divider,
 	ActivityIndicator,
 	MD2Colors,
+	Appbar,
 } from 'react-native-paper';
 import {
 	View,
@@ -144,6 +144,7 @@ export default function ProfileUpdate() {
 		width: 300,
 	};
 
+	//Appbar:
 	useLayoutEffect(() => {
 		navigation.setOptions({
 			header: () => (
@@ -155,7 +156,7 @@ export default function ProfileUpdate() {
 		});
 	}, [navigation]);
 
-	//get profile info
+	//get profile info on load
 	useEffect(() => {
 		getProfileInfo();
 		getPhoto();
