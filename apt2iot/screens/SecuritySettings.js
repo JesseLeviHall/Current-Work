@@ -32,11 +32,8 @@ export default function SecuritySettings() {
 			{!loading && (
 				<ImageBackground source={img} className='flex-1'>
 					<KeyboardAvoidingView behavior='position'>
-						<View>
-							<Text>
-								Account Settings
-								<LogOutButton />
-							</Text>
+						<View className='flex flex-row justify-center mt-48'>
+							<LogOutButton />
 						</View>
 					</KeyboardAvoidingView>
 					<View className='absolute inset-x-0 bottom-8 h-16'>
