@@ -26,7 +26,6 @@ export const AuthProvider = ({ children }) => {
 				if (token) {
 					setIsAuthorized(true);
 					setToken(token);
-					console.log('security token valid', token);
 				} else {
 					await api.logout();
 					setIsAuthorized(false);
@@ -52,18 +51,15 @@ export const AuthProvider = ({ children }) => {
 				setIsAuthorized(true);
 				setLoading(false);
 				setToken(response.token);
-				console.log('login successful');
 			} else {
 				setLoading(false);
 				setIsAuthorized(false);
-				setError(response);
-				Alert.alert(response.message);
-				console.log(error);
+				Alert.alert(response);
 			}
 		} catch (error) {
 			setLoading(false);
 			setIsAuthorized(false);
-			setError(error);
+			console.log(error);
 		}
 	}
 

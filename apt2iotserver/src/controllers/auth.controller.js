@@ -21,8 +21,8 @@ const signUp = async (req, res) => {
 		},
 	});
 	//create user if email is not already used
-	if (!userExist) {
-		try {
+	try {
+		if (!userExist) {
 			User.sync();
 			await User.create({
 				firstName,
@@ -52,12 +52,11 @@ const signUp = async (req, res) => {
 				role: newUser.role,
 				token: generateToken(newUser),
 			});
-		} catch (err) {
-			res.status(500).json(err);
-			console.log(err);
+		} else {
+			res.send({ message: 'Email already in use' });
 		}
-	} else {
-		res.status(400).send({ message: 'user already exists' });
+	} catch (err) {
+		res.status(500).json(err);
 	}
 };
 
@@ -69,25 +68,29 @@ const login = async (req, res) => {
 		where: { email: email },
 	});
 	//gen a session token
-	const generateToken = (user) => {
-		return JWT.sign({ id: user.id }, jwtConfig.secret, {
-			expiresIn: jwtConfig.expiresIn,
-			issuer: jwtConfig.issuer,
-			audience: jwtConfig.audience,
-			algorithm: jwtConfig.algorithm,
-		});
-	};
-	//if user exists compare password and send token
-	if (user && (await bcrypt.compare(password, user.password))) {
-		res.status(200).json({
-			id: user.id,
-			name: user.firstName,
-			email: user.email,
-			role: user.role,
-			token: generateToken(user),
-		});
-	} else {
-		res.status(401).json({ message: 'invalid credentials' });
+	try {
+		const generateToken = (user) => {
+			return JWT.sign({ id: user.id }, jwtConfig.secret, {
+				expiresIn: jwtConfig.expiresIn,
+				issuer: jwtConfig.issuer,
+				audience: jwtConfig.audience,
+				algorithm: jwtConfig.algorithm,
+			});
+		};
+		//if user exists compare password and send token
+		if (user && (await bcrypt.compare(password, user.password))) {
+			res.status(200).json({
+				id: user.id,
+				name: user.firstName,
+				email: user.email,
+				role: user.role,
+				token: generateToken(user),
+			});
+		} else {
+			res.send({ message: 'invalid credentials' });
+		}
+	} catch (error) {
+		res.status(500).json(error);
 	}
 };
 

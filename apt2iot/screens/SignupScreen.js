@@ -13,6 +13,7 @@ import {
 	Text,
 	TouchableOpacity,
 	KeyboardAvoidingView,
+	Alert,
 } from 'react-native';
 import useAuth from '../hooks/useAuth';
 import * as api from '../api/index';
@@ -35,16 +36,13 @@ const SignupScreen = () => {
 			if (response.token) {
 				setIsAuthorized(true);
 				setLoading(false);
-				console.log('sign up successful');
 			} else {
 				setLoading(false);
 				setIsAuthorized(false);
-				setError(response);
-				console.log(error);
+				Alert.alert(response);
 			}
 		} catch (error) {
 			setLoading(false);
-			setIsAuthorized(false);
 			setError(error);
 		}
 	};

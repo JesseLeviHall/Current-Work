@@ -42,7 +42,7 @@ export const getClientToken = async () => {
 export const getServerToken = async (userData) => {
 	try {
 		const { status, data } = await API.post('/api/login', userData);
-		if (status === 200) {
+		if (status === 200 && data.token) {
 			AsyncStorage.setItem('token', `${data.token}`);
 			AsyncStorage.setItem('userId', `${data.id}`);
 			AsyncStorage.setItem('userEmail', data.email);
@@ -50,14 +50,10 @@ export const getServerToken = async (userData) => {
 			AsyncStorage.setItem('role', data.role);
 			return data;
 		} else {
-			// Handle error
-			console.log(`Error uploading photo: ${status}`);
-			return null;
+			return data.message;
 		}
 	} catch (error) {
-		console.log(error.message);
-		const problem = 'invalid credentials';
-		return problem;
+		console.log(error);
 	}
 };
 
@@ -78,7 +74,7 @@ export const logout = async () => {
 export const signUp = async (signupData) => {
 	try {
 		const { status, data } = await API.post('/api/signup', signupData);
-		if (status === 200) {
+		if (status === 200 && data.token) {
 			AsyncStorage.setItem('token', `${data.token}`);
 			AsyncStorage.setItem('userId', `${data.id}`);
 			AsyncStorage.setItem('userEmail', data.email);
@@ -86,19 +82,14 @@ export const signUp = async (signupData) => {
 			AsyncStorage.setItem('role', data.role);
 			return data;
 		} else {
-			// Handle error
-			console.log(`Error uploading photo: ${status}`);
-			return null;
+			return data.message;
 		}
 	} catch (error) {
-		console.log(error.message);
-		const problem = 'invalid credentials';
-		return problem;
+		console.log(error);
 	}
 };
 
 // get profile info
-
 export const getProfileInfo = async () => {
 	try {
 		const { status, data } = await API.get('/api/profiledata');

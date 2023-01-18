@@ -13,7 +13,6 @@ import {
 	KeyboardAvoidingView,
 	Image,
 	ImageBackground,
-	alert,
 } from 'react-native';
 import img from '../images/old/background.png';
 import logo from '../images/old/logo_main.png';
