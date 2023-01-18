@@ -137,11 +137,13 @@ export default function ProfileUpdate() {
 	const containerStyle = {
 		backgroundColor: 'white',
 		position: 'absolute',
-		top: -350,
-		left: 45,
-		right: 0,
-		height: 400,
-		width: 300,
+		width: '100%',
+		height: '95%',
+		top: -450,
+		left: 10,
+		padding: 20,
+		margin: 20,
+		borderRadius: 10,
 	};
 
 	//Appbar:
@@ -284,10 +286,8 @@ export default function ProfileUpdate() {
 												open={open}
 												dropDownContainerStyle={{
 													position: 'absolute',
-													top: -200,
-													left: 45,
-													height: 400,
-													width: 200,
+													top: -230,
+													width: '100%',
 												}}
 												setValue={setState}
 												dropDownDirection='TOP'

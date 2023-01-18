@@ -1,5 +1,6 @@
 const express = require('express');
 const { protect } = require('../middleware/authMiddleware');
+const crypto = require('crypto');
 const multer = require('multer');
 const {
 	getProfileInfo,
@@ -13,7 +14,8 @@ const storage = multer.diskStorage({
 		cb(null, './uploads');
 	},
 	filename: function (req, file, cb) {
-		cb(null, file.originalname);
+		const randomNumber = crypto.randomBytes(16).toString('hex');
+		cb(null, randomNumber + '-' + file.originalname);
 	},
 });
 
