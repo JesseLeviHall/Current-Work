@@ -8,7 +8,6 @@ const API = axios.create({
 	},
 });
 /* 
-
 starting new ec2:
 sudo yum update -y
 sudo yum install docker
@@ -17,5 +16,4 @@ sudo usermod -a -G docker ec2-user
 restart connection
 docker login, enter username and password
 docker run -it -p 3500:3500 apt2iot/backend<version>
-
 */
