@@ -76,6 +76,7 @@ export const AuthProvider = ({ children }) => {
 		}
 	};
 
+	//client token
 	// Make the provider update only when it should.
 	// We only want to force re-renders if the user,
 	// loading or error states change.
