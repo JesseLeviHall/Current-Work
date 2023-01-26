@@ -4,7 +4,7 @@ import jdubDecode from 'jwt-decode';
 
 // set axios configurations
 const API = axios.create({
-	baseURL: 'http://52.87.229.12:3500',
+	baseURL: 'http://3.94.59.108:80',
 	timeout: 10000,
 	withCredentials: false,
 });
