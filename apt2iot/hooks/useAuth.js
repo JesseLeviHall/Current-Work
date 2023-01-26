@@ -79,7 +79,6 @@ export const AuthProvider = ({ children }) => {
 	// Make the provider update only when it should.
 	// We only want to force re-renders if the user,
 	// loading or error states change.
-	//
 	// Whenever the `value` passed into a provider changes,
 	// the whole tree under the provider re-renders, and
 	// that can be very costly! Even in this case, where
