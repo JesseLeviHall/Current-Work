@@ -22,7 +22,6 @@ API.interceptors.request.use(async (config) => {
 export const getClientToken = async () => {
 	try {
 		const user = await AsyncStorage.getItem('token');
-
 		const parsedUser = jdubDecode(user);
 		if (parsedUser) {
 			const expirationTime = new Date(parsedUser.exp * 1000);
@@ -125,7 +124,7 @@ export const updateProfileInfo = async (updateData) => {
 export const getProfilePhoto = async () => {
 	try {
 		const { status, data } = await API.get('/api/profilephoto', {
-			responseType: 'arraybuffer',
+			responseType: 'blob',
 		});
 		if (status === 200) {
 			return data;

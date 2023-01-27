@@ -66,8 +66,7 @@ export default function ProfileUpdate() {
 			const data = await api.getProfilePhoto();
 			if (data) {
 				setLoading(false);
-				const blob = new Blob([data], { type: 'image/png' });
-				const photoData = URL.createObjectURL(blob);
+				const photoData = URL.createObjectURL(data);
 				setPhotoBlob(photoData);
 			} else {
 				setLoading(false);
