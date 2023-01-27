@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 import * as ImagePicker from 'expo-image-picker';
+import * as ImageManipulator from 'expo-image-manipulator';
 import {
 	Button,
 	TextInput,
@@ -89,9 +90,15 @@ export default function ProfileUpdate() {
 		if (!result.canceled) {
 			try {
 				setLoading(true);
+				// Resize the image
+				const newImage = await ImageManipulator.manipulateAsync(
+					result.assets[0].uri,
+					[{ resize: { width: 100, height: 100 } }],
+					{ format: ImageManipulator.SaveFormat.PNG }
+				);
 				const file = {
-					uri: result.assets[0].uri,
-					type: result.assets[0].type,
+					uri: newImage.uri,
+					type: 'image/png',
 					name: result.assets[0].fileName,
 				};
 				const photoData = new FormData();
