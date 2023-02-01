@@ -2,9 +2,9 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jdubDecode from 'jwt-decode';
 
-// set axios configurations
+// start the server and put the IP it is running on in here
 const API = axios.create({
-	baseURL: 'http://3.94.59.108:80',
+	baseURL: 'http://192.168.0.55:3500',
 	timeout: 10000,
 	withCredentials: false,
 });
