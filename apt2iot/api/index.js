@@ -70,7 +70,7 @@ export const logout = async () => {
 	}
 };
 
-// sign up function
+// sign up function also logs you in
 export const signUp = async (signupData) => {
 	try {
 		const { status, data } = await API.post('/api/signup', signupData);
