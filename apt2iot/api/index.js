@@ -38,7 +38,7 @@ export const getClientToken = async () => {
 	}
 };
 
-// Get Logged in Token from Server at login
+// Get Logged in Token from Server used at login
 export const getServerToken = async (userData) => {
 	try {
 		const { status, data } = await API.post('/api/login', userData);
