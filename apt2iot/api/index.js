@@ -18,7 +18,7 @@ API.interceptors.request.use(async (config) => {
 	return config;
 });
 
-// check Logged in Token from Client used on app initial load
+// check Logged in Token from Client - used on app initial load
 export const getClientToken = async () => {
 	try {
 		const user = await AsyncStorage.getItem('token');
