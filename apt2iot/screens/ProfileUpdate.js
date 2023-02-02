@@ -245,6 +245,7 @@ export default function ProfileUpdate() {
 									<Modal
 										visible={visible}
 										dismissable={true}
+										keyboardDismissMode='on-drag'
 										onDismiss={() => setVisible(false)}
 										contentContainerStyle={containerStyle}>
 										<Button
