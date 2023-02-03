@@ -28,7 +28,13 @@ export default function SetAutomations() {
 		<>
 			{!loading && (
 				<ImageBackground source={img} className='flex-1'>
-					<View className='flex-1 justify-center items-center'>
+					<Text className='w-screen text-3xl ml-2 mt-4 text-slate-700 font-bold'>
+						Set Scheduled Atomations
+					</Text>
+					<Text className='w-screen text-3xl mt-4 ml-2 text-slate-700 font-thin'>
+						Select a date range and time to set the automation
+					</Text>
+					<View className='flex mt-4 justify-center items-center'>
 						<RangePicker />
 						<SinglePicker />
 						<TimePicker />
