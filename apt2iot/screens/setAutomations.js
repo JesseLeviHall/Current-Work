@@ -45,19 +45,6 @@ export default function SetAutomations() {
 		});
 	}, [navigation]);
 
-	//dialog styles:
-	const containerStyle = {
-		backgroundColor: 'white',
-		position: 'absolute',
-		width: '100%',
-		height: '95%',
-		top: -450,
-		left: 10,
-		padding: 20,
-		margin: 20,
-		borderRadius: 10,
-	};
-
 	return (
 		<>
 			{!loading && (
@@ -118,14 +105,14 @@ export default function SetAutomations() {
 							</TouchableOpacity>
 						</View>
 						<Provider>
-							<View className='px-16'>
+							<View className='px-16 mt-24 mb-96'>
 								<Button
 									onPress={showDialog}
-									className='bg-slate-400 text-white z-10  mt-14 mb-48 '
+									className=' bg-fuchsia-100  text-white '
 									mode='elevated'>
 									Save Automation
 								</Button>
-								<Portal contentContainerStyle={containerStyle}>
+								<Portal>
 									<Dialog visible={visible} onDismiss={hideDialog}>
 										<Dialog.Title>Success</Dialog.Title>
 										<Dialog.Content>
