@@ -28,7 +28,7 @@ export default function RangePicker() {
 			<Button
 				className='bg-slate-100'
 				onPress={() => setOpen(true)}
-				mode='outlined'>
+				mode='elevated'>
 				Range
 			</Button>
 			<DatePickerModal

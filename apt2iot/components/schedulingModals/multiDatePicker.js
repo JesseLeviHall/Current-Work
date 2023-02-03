@@ -23,7 +23,7 @@ export default function MultiPicker() {
 				className='bg-slate-100'
 				onPress={() => setOpen(true)}
 				uppercase={false}
-				mode='outlined'>
+				mode='elevated'>
 				Multiple
 			</Button>
 			<DatePickerModal

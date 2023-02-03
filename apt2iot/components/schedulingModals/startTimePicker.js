@@ -23,7 +23,7 @@ export default function StartTimePicker() {
 				className='bg-slate-100'
 				onPress={() => setVisible(true)}
 				uppercase={false}
-				mode='outlined'>
+				mode='elevated'>
 				Pick Start Time
 			</Button>
 			<TimePickerModal

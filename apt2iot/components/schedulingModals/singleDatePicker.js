@@ -26,7 +26,7 @@ export default function SinglePicker() {
 				className='bg-slate-100  '
 				onPress={() => setOpen(true)}
 				uppercase={false}
-				mode='outlined'>
+				mode='elevated'>
 				Single Date
 			</Button>
 			<DatePickerModal

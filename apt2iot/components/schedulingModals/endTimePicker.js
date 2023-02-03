@@ -23,7 +23,7 @@ export default function EndTimePicker() {
 				className='bg-slate-100'
 				onPress={() => setVisible(true)}
 				uppercase={false}
-				mode='outlined'>
+				mode='elevated'>
 				Pick End Time
 			</Button>
 			<TimePickerModal
