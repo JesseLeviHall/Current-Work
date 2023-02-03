@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { TimePickerModal } from 'react-native-paper-dates';
 
-export default function TimePicker() {
+export default function EndTimePicker() {
 	const [visible, setVisible] = React.useState(false);
 	const onDismiss = React.useCallback(() => {
 		setVisible(false);
@@ -24,7 +24,7 @@ export default function TimePicker() {
 				onPress={() => setVisible(true)}
 				uppercase={false}
 				mode='outlined'>
-				Pick Time
+				Pick End Time
 			</Button>
 			<TimePickerModal
 				visible={visible}

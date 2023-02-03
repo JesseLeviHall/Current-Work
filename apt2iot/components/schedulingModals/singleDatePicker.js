@@ -23,11 +23,11 @@ export default function SinglePicker() {
 	return (
 		<View>
 			<Button
-				className='bg-slate-100'
+				className='bg-slate-100  '
 				onPress={() => setOpen(true)}
 				uppercase={false}
 				mode='outlined'>
-				Pick Single Date
+				Single Date
 			</Button>
 			<DatePickerModal
 				locale='en'
