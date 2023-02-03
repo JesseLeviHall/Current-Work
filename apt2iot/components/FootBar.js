@@ -9,7 +9,7 @@ import plusPic from '../images/old/add_pick.png';
 export default function FootBar() {
 	const navigation = useNavigation();
 	return (
-		<View className='bg-slate-800  backdrop-grayscale-0 bg-white/30 fixed h-24 flex flex-row justify-between'>
+		<View className='bg-slate-400 fixed h-24 flex flex-row justify-between'>
 			<View className='flex items-center mt-2'>
 				<Icon
 					onPress={() => navigation.navigate('Home')}
