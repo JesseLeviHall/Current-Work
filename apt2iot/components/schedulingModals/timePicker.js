@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { TimePickerModal } from 'react-native-paper-dates';
 
@@ -20,6 +20,7 @@ export default function TimePicker() {
 	return (
 		<View>
 			<Button
+				className='bg-slate-100'
 				onPress={() => setVisible(true)}
 				uppercase={false}
 				mode='outlined'>

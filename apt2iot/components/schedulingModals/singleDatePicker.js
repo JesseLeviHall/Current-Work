@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { DatePickerModal } from 'react-native-paper-dates';
 
@@ -15,13 +15,18 @@ export default function SinglePicker() {
 		(params) => {
 			setOpen(false);
 			setDate(params.date);
+			console.log(params.date);
 		},
 		[setOpen, setDate]
 	);
 
 	return (
 		<View>
-			<Button onPress={() => setOpen(true)} uppercase={false} mode='outlined'>
+			<Button
+				className='bg-slate-100'
+				onPress={() => setOpen(true)}
+				uppercase={false}
+				mode='outlined'>
 				Pick Single Date
 			</Button>
 			<DatePickerModal
