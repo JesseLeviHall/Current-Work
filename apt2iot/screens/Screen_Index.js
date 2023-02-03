@@ -9,3 +9,4 @@ export { default as MaintReq } from './MaintReq';
 export { default as DeliveryInfo } from './DeliveryInfo';
 export { default as PayBills } from './PayBills';
 export { default as MessageBoard } from './MessageBoard';
+export { default as SetAutomations } from './SetAutomations';

@@ -32,7 +32,13 @@ export default function FootBar() {
 				<Icon name='user' color='black' size={48} type='feather' />
 			</View>
 			<View className='flex items-center mt-4 mr-2'>
-				<Icon name='clock' color='black' size={48} type='feather' />
+				<Icon
+					onPress={() => navigation.navigate('SetAutomations')}
+					name='clock'
+					color='black'
+					size={48}
+					type='feather'
+				/>
 			</View>
 		</View>
 	);

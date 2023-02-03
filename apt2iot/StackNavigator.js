@@ -13,7 +13,9 @@ import {
 	DeliveryInfo,
 	PayBills,
 	MessageBoard,
+	SingleDateSet,
 } from './screens/Screen_Index';
+import SetAutomations from './screens/SetAutomations';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +37,7 @@ const StackNavigator = () => {
 					<Stack.Screen name='DeliveryInfo' component={DeliveryInfo} />
 					<Stack.Screen name='PayBills' component={PayBills} />
 					<Stack.Screen name='MessageBoard' component={MessageBoard} />
+					<Stack.Screen name='SetAutomations' component={SetAutomations} />
 				</>
 			) : (
 				<Stack.Group>
