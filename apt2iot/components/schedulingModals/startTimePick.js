@@ -5,6 +5,8 @@ import { TimePickerModal } from 'react-native-paper-dates';
 
 export default function StartTimePicker() {
 	const [visible, setVisible] = React.useState(false);
+
+	let startTime = {};
 	const onDismiss = React.useCallback(() => {
 		setVisible(false);
 	}, [setVisible]);
@@ -12,11 +14,11 @@ export default function StartTimePicker() {
 	const onConfirm = React.useCallback(
 		({ hours, minutes }) => {
 			setVisible(false);
-			console.log({ hours, minutes });
+			startTime = { hours, minutes };
+			console.log({ startTime });
 		},
 		[setVisible]
 	);
-
 	return (
 		<View>
 			<Button
@@ -31,7 +33,7 @@ export default function StartTimePicker() {
 				onDismiss={onDismiss}
 				onConfirm={onConfirm}
 				hours={12}
-				minutes={14}
+				minutes={15}
 			/>
 		</View>
 	);

@@ -19,8 +19,8 @@ import { useNavigation } from '@react-navigation/core';
 import FootBar from '../components/FootBar';
 import SinglePicker from '../components/schedulingModals/singleDatePicker';
 import RangePicker from '../components/schedulingModals/rangeDatePicker';
-import StartTimePicker from '../components/schedulingModals/startTimePicker';
-import EndTimePicker from '../components/schedulingModals/endTimePicker';
+import StartTimePicker from '../components/schedulingModals/startTimePick';
+import EndTimePicker from '../components/schedulingModals/endTimePick';
 import MultiPicker from '../components/schedulingModals/multiDatePicker';
 import img from '../images/old/background2.png';
 

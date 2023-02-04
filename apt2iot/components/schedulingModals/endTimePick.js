@@ -1,20 +1,20 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Button } from 'react-native-paper';
-import { TimePickerModal } from 'react-native-paper-dates';
+import { TimePickerModal, en } from 'react-native-paper-dates';
 
 export default function EndTimePicker() {
 	const [visible, setVisible] = React.useState(false);
-	const [endTime, setEndTime] = React.useState({});
 
+	let endTime = {};
 	const onDismiss = React.useCallback(() => {
 		setVisible(false);
 	}, [setVisible]);
 
 	const onConfirm = React.useCallback(
 		({ hours, minutes }) => {
-			setEndTime({ hours, minutes });
 			setVisible(false);
+			endTime = { hours, minutes };
 			console.log({ endTime });
 		},
 		[setVisible]
@@ -34,7 +34,7 @@ export default function EndTimePicker() {
 				onDismiss={onDismiss}
 				onConfirm={onConfirm}
 				hours={12}
-				minutes={14}
+				minutes={15}
 			/>
 		</View>
 	);
