@@ -13,9 +13,8 @@ import {
 	DeliveryInfo,
 	PayBills,
 	MessageBoard,
-	SingleDateSet,
+	SetAutomations,
 } from './screens/Screen_Index';
-import SetAutomations from './screens/SetAutomations';
 
 const Stack = createNativeStackNavigator();
 
