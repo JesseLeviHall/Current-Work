@@ -27,6 +27,11 @@ import img from '../images/old/background2.png';
 //to set yellow to selected automation, we're using the reducer hook
 const initialState = {
 	mode: 'At Home',
+	Range: {},
+	Single: {},
+	Multi: [],
+	StartTime: {},
+	EndTime: {},
 };
 
 const reducer = (state, action) => {

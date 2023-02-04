@@ -5,14 +5,17 @@ import { TimePickerModal } from 'react-native-paper-dates';
 
 export default function EndTimePicker() {
 	const [visible, setVisible] = React.useState(false);
+	const [endTime, setEndTime] = React.useState({});
+
 	const onDismiss = React.useCallback(() => {
 		setVisible(false);
 	}, [setVisible]);
 
 	const onConfirm = React.useCallback(
 		({ hours, minutes }) => {
+			setEndTime({ hours, minutes });
 			setVisible(false);
-			console.log({ hours, minutes });
+			console.log({ endTime });
 		},
 		[setVisible]
 	);

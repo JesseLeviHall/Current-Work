@@ -11,11 +11,14 @@ export default function MultiPicker() {
 		setOpen(false);
 	}, [setOpen]);
 
-	const onConfirm = React.useCallback((params) => {
-		setOpen(false);
-		setDates(params.dates);
-		console.log('[on-change-multi]', params);
-	}, []);
+	const onConfirm = React.useCallback(
+		(params) => {
+			setOpen(false);
+			setDates(params.dates);
+			console.log(dates);
+		},
+		[dates]
+	);
 
 	return (
 		<View>

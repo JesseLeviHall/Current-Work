@@ -11,14 +11,11 @@ export default function SinglePicker() {
 		setOpen(false);
 	}, [setOpen]);
 
-	const onConfirmSingle = React.useCallback(
-		(params) => {
-			setOpen(false);
-			setDate(params.date);
-			console.log(params.date);
-		},
-		[setOpen, setDate]
-	);
+	const onConfirmSingle = React.useCallback((params) => {
+		setOpen(false);
+		setDate(params.date);
+		console.log(date);
+	}, []);
 
 	return (
 		<View>
