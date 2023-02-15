@@ -20,6 +20,14 @@ export default function SinglePicker() {
 		[date]
 	);
 
+	React.useEffect(() => {
+		if (date) {
+			console.log(date);
+		} else {
+			console.log('no date selected');
+		}
+	}, [date]);
+
 	return (
 		<View>
 			<Button
