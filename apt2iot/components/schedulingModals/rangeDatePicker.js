@@ -23,6 +23,14 @@ export default function RangePicker() {
 		[setOpen, setRange]
 	);
 
+	React.useEffect(() => {
+		if (range.startDate && range.endDate) {
+			console.log(range);
+		} else {
+			console.log('no date selected');
+		}
+	}, [range]);
+
 	return (
 		<View>
 			<Button
