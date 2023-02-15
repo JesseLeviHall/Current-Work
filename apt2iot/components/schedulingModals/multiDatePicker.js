@@ -20,6 +20,14 @@ export default function MultiPicker() {
 		[dates]
 	);
 
+	React.useEffect(() => {
+		if (dates) {
+			console.log(dates);
+		} else {
+			console.log('no date selected');
+		}
+	}, [dates]);
+
 	return (
 		<View>
 			<Button
