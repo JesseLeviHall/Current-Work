@@ -24,14 +24,9 @@ import EndTimePicker from '../components/schedulingModals/endTimePick';
 import MultiPicker from '../components/schedulingModals/multiDatePicker';
 import img from '../images/old/background2.png';
 
-//to set yellow to selected automation, we're using the reducer hook
+//to set selected automation, we're using the reducer hook for the various modes rather than a bunch of useState hooks.
 const initialState = {
 	mode: 'At Home',
-	Range: {},
-	Single: {},
-	Multi: [],
-	StartTime: {},
-	EndTime: {},
 };
 
 const reducer = (state, action) => {
