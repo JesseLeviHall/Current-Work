@@ -140,8 +140,18 @@ export default function ProfileUpdate() {
 	const showModal = () => setVisible(true);
 	const hideModal = () => setVisible(false);
 
-	//modal styles:
-	const containerStyle = {
+	const androidModalStyle = {
+		position: 'flex',
+		top: -400,
+		backgroundColor: 'white',
+		padding: 20,
+		margin: 'auto',
+		borderRadius: 10,
+		width: '75%',
+		height: '300%',
+	};
+
+	const iosModalStyle = {
 		backgroundColor: 'white',
 		position: 'absolute',
 		width: '100%',
@@ -152,6 +162,11 @@ export default function ProfileUpdate() {
 		margin: 20,
 		borderRadius: 10,
 	};
+
+	const containerStyle = Platform.select({
+		ios: iosModalStyle,
+		android: androidModalStyle,
+	});
 
 	//Appbar:
 	useLayoutEffect(() => {

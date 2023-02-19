@@ -75,14 +75,14 @@ const SignupScreen = () => {
 						<TextInput
 							className='grid-cols-1 self-center w-64 h-10 mt-2'
 							placeholder='First Name'
-							mode='outlined'
+							mode={'oulined'}
 							value={firstName}
 							onChangeText={(text) => setFirstName(text)}
 						/>
 						<TextInput
 							className='grid-cols-1 self-center w-64 h-10 mt-2'
 							placeholder='Last Name'
-							mode='outlined'
+							mode={'oulined'}
 							value={lastName}
 							onChangeText={(text) => setLastName(text)}
 						/>
@@ -90,7 +90,7 @@ const SignupScreen = () => {
 							className='grid-cols-1 self-center w-64 h-10 mt-2'
 							placeholder='Email'
 							autoCapitalize='none'
-							mode='outlined'
+							mode={'oulined'}
 							value={email}
 							onChangeText={(text) => setEmail(text)}
 						/>
@@ -100,7 +100,7 @@ const SignupScreen = () => {
 							placeholder='Create Password'
 							autoCapitalize='none'
 							password={true}
-							mode='outlined'
+							mode={'oulined'}
 							textContentType='newPassword'
 							secureTextEntry={true}
 							value={password}
@@ -109,8 +109,10 @@ const SignupScreen = () => {
 							}}
 						/>
 						<Button
-							className='grid-cols-1 self-center w-64 h-10 mt-5 bg-stone-900'
-							mode='contained'
+							className={`grid-cols-1 self-center mt-6 w-64 `}
+							mode={'contained-tonal'}
+							textColor={'white'}
+							buttonColor={'black'}
 							onPress={() => handleSignup()}>
 							signup
 						</Button>

@@ -7,6 +7,7 @@ import {
 	MD2Colors,
 } from 'react-native-paper';
 import {
+	Platform,
 	View,
 	Text,
 	TouchableOpacity,
@@ -49,10 +50,10 @@ const LoginScreen = () => {
 							Login with Email
 						</Text>
 						<TextInput
-							className='grid-cols-1 self-center w-64 h-10 mt-2'
+							className='grid-cols-1 self-center w-64 h-10 mt-3'
 							placeholder='Email'
 							autoCapitalize='none'
-							mode='outlined'
+							mode={'oulined'}
 							value={email}
 							onChangeText={setEmail}
 						/>
@@ -60,14 +61,16 @@ const LoginScreen = () => {
 							className='grid-cols-1 self-center w-64 h-10 mt-3'
 							placeholder='Password'
 							autoCapitalize='none'
-							mode='outlined'
+							mode={'oulined'}
 							secureTextEntry={true}
 							value={password}
 							onChangeText={setPassword}
 						/>
 						<Button
-							className='grid-cols-1 self-center w-64 h-10 mt-5 bg-stone-900'
-							mode='contained'
+							className={`grid-cols-1 self-center mt-6 w-64 `}
+							mode={'contained-tonal'}
+							textColor={'white'}
+							buttonColor={'black'}
 							onPress={() => handleLogin(email, password)}>
 							Login
 						</Button>
