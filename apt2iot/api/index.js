@@ -148,6 +148,6 @@ export const uploadProfilePhoto = async (photoData) => {
 			return null;
 		}
 	} catch (error) {
-		console.log('Error', error.message);
+		console.log('Error sending blob or something', error.message);
 	}
 };

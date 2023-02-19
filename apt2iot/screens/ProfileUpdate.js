@@ -67,8 +67,11 @@ export default function ProfileUpdate() {
 			const data = await api.getProfilePhoto();
 			if (data) {
 				setLoading(false);
-				const photoData = URL.createObjectURL(data);
-				setPhotoBlob(photoData);
+				const reader = new FileReader();
+				reader.readAsDataURL(data);
+				reader.onloadend = () => {
+					setPhotoBlob(reader.result);
+				};
 			} else {
 				setLoading(false);
 				return;
@@ -140,34 +143,6 @@ export default function ProfileUpdate() {
 	const showModal = () => setVisible(true);
 	const hideModal = () => setVisible(false);
 
-	const androidModalStyle = {
-		position: 'flex',
-		top: -400,
-		backgroundColor: 'white',
-		padding: 20,
-		margin: 'auto',
-		borderRadius: 10,
-		width: '75%',
-		height: '300%',
-	};
-
-	const iosModalStyle = {
-		backgroundColor: 'white',
-		position: 'absolute',
-		width: '100%',
-		height: '95%',
-		top: -450,
-		left: 10,
-		padding: 20,
-		margin: 20,
-		borderRadius: 10,
-	};
-
-	const containerStyle = Platform.select({
-		ios: iosModalStyle,
-		android: androidModalStyle,
-	});
-
 	//Appbar:
 	useLayoutEffect(() => {
 		navigation.setOptions({
@@ -185,6 +160,33 @@ export default function ProfileUpdate() {
 		getProfileInfo();
 		getPhoto();
 	}, []);
+
+	const androidModalStyle = {
+		backgroundColor: 'white',
+		top: -280,
+		left: -10,
+		width: 330,
+		height: 500,
+		padding: 20,
+		margin: 20,
+	};
+
+	const iosModalStyle = {
+		backgroundColor: 'white',
+		position: 'absolute',
+		width: '100%',
+		height: '100%',
+		top: -550,
+		left: -25,
+		padding: 20,
+		margin: 20,
+		borderRadius: 10,
+	};
+
+	const containerStyle = Platform.select({
+		ios: iosModalStyle,
+		android: androidModalStyle,
+	});
 
 	return (
 		<>
@@ -255,8 +257,21 @@ export default function ProfileUpdate() {
 									</Text>
 								</View>
 							</View>
-							<Provider>
-								<Portal>
+						</View>
+						<View className='flex flex-row mx-8 justify-center h-14 mt-8'>
+							<Button
+								className={`h-10 mt-6 w-64 `}
+								mode={'contained-tonal'}
+								textColor={'white'}
+								buttonColor={'black'}
+								onPress={showModal}>
+								Edit
+							</Button>
+						</View>
+						<Provider>
+							<Portal>
+								<View
+									className={`flex flex-row mx-8 w-36 h-full justify-center `}>
 									<Modal
 										visible={visible}
 										dismissable={true}
@@ -264,78 +279,72 @@ export default function ProfileUpdate() {
 										onDismiss={() => setVisible(false)}
 										contentContainerStyle={containerStyle}>
 										<Button
-											className='self-end mt-2 mr-2'
+											className='self-end mr-2'
 											onPress={hideModal}
 											icon='close'>
 											cancel
 										</Button>
-										<KeyboardAvoidingView>
-											<TextInput
-												className='grid-cols-1 self-center w-64 h-10 mt-2'
-												placeholder='Choose A Username (optional)'
-												autoCapitalize='none'
-												mode='outlined'
-												value={userName}
-												onChangeText={(text) => setUserName(text)}
-											/>
-											<TextInput
-												className='grid-cols-1 self-center w-64 h-10 mt-2'
-												placeholder='Street Address'
-												mode='outlined'
-												value={address}
-												onChangeText={(text) => setAddress(text)}
-											/>
-											<TextInput
-												className='grid-cols-1 self-center w-64 h-10 mt-2'
-												placeholder='City'
-												mode='outlined'
-												value={city}
-												onChangeText={(text) => setCity(text)}
-											/>
-											<TextInput
-												className='grid-cols-1 self-center w-64 h-10 mt-2'
-												placeholder='Zip'
-												autoCapitalize='none'
-												mode='outlined'
-												value={zip}
-												onChangeText={(text) => setZip(text)}
-											/>
-											<DropDownPicker
-												className='grid-cols-1 self-center w-64 h-10 my-4'
-												activityIndicatorColor='#5188E3'
-												items={data}
-												defaultValue={'state'}
-												setOpen={setOpen}
-												open={open}
-												dropDownContainerStyle={{
-													position: 'absolute',
-													top: -230,
-													width: '100%',
-												}}
-												setValue={setState}
-												dropDownDirection='TOP'
-												placeholder='State'
-												value={state}
-												onOpen={toggleDropDown}
-												onChangeText={(text) => setState(text)}
-											/>
-											<Button
-												onPress={handleUpdate}
-												className='grid-cols-1 self-center w-64 h-10 mt-3 mb-5 bg-stone-900'
-												mode='contained'>
-												update
-											</Button>
-										</KeyboardAvoidingView>
+										<TextInput
+											className=''
+											placeholder='Choose A Username (optional)'
+											autoCapitalize='none'
+											mode={'oulined'}
+											value={userName}
+											onChangeText={(text) => setUserName(text)}
+										/>
+										<TextInput
+											className=''
+											placeholder='Street Address'
+											mode={'oulined'}
+											value={address}
+											onChangeText={(text) => setAddress(text)}
+										/>
+										<TextInput
+											className=''
+											placeholder='City'
+											mode={'oulined'}
+											value={city}
+											onChangeText={(text) => setCity(text)}
+										/>
+										<TextInput
+											className=''
+											placeholder='Zip'
+											autoCapitalize='none'
+											mode={'oulined'}
+											value={zip}
+											onChangeText={(text) => setZip(text)}
+										/>
+										<DropDownPicker
+											className={`grid-cols-1 self-center w-full h-10 my-4`}
+											activityIndicatorColor='#5188E3'
+											items={data}
+											defaultValue={'state'}
+											setOpen={setOpen}
+											open={open}
+											dropDownContainerStyle={{
+												position: 'absolute',
+												top: -200,
+												width: '100%',
+											}}
+											setValue={setState}
+											dropDownDirection='TOP'
+											placeholder='State'
+											value={state}
+											onOpen={toggleDropDown}
+											onChangeText={(text) => setState(text)}
+										/>
+										<Button
+											onPress={handleUpdate}
+											className={`grid-cols-1 self-center mt-6 w-64 `}
+											mode={'contained-tonal'}
+											textColor={'white'}
+											buttonColor={'black'}>
+											Submit
+										</Button>
 									</Modal>
-								</Portal>
-								<Button
-									className={`grid-cols-1 self-center w-64 h-10 mt-12 bg-stone-900 android:text-white`}
-									mode='contained'
-									onPress={showModal}>
-									Edit
-								</Button>
-							</Provider>
-						</View>
+								</View>
+							</Portal>
+						</Provider>
 					</KeyboardAvoidingView>
 					<View className='absolute inset-x-0 bottom-8 h-16'>
 						<FootBar />
