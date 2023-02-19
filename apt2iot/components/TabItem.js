@@ -15,7 +15,8 @@ const TabItem = ({ text, toScreen }) => {
 							? `bg-yellow-500 border border-stone-500`
 							: `bg-transparent`
 					} `}>
-					<Text className='text-center h-auto w-auto mt-1 px-4 text-xl font-medium'>
+					<Text
+						className={`text-center h-auto w-auto mt-1 px-4 text-xl font-medium android:my-auto pb-1`}>
 						{text}
 					</Text>
 				</View>
