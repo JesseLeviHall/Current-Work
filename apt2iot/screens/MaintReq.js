@@ -31,7 +31,16 @@ export default function MaintReq() {
 			{!loading && (
 				<ImageBackground source={img} className='flex-1'>
 					<KeyboardAvoidingView behavior='position'>
-						<View className='flex flex-row justify-center mt-48'></View>
+						<View className='flex flex-row justify-center mt-48'>
+							<Text
+								className={` mt-6
+        ios: text bold text-red-800
+        android:text-blue-500
+        web:text-green-600
+      `}>
+								This Feature is in Development
+							</Text>
+						</View>
 					</KeyboardAvoidingView>
 					<View className='absolute inset-x-0 bottom-8 h-16'>
 						<FootBar />

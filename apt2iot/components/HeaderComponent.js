@@ -34,6 +34,7 @@ export default function HeaderComponent() {
 		user();
 	}, []);
 
+	const height = Platform.OS === 'android' ? '55%' : '42%';
 	return (
 		<View className='flex flex-row mx-8 justify-between h-14 mt-16 bg-transparent'>
 			<Overlay
@@ -44,7 +45,7 @@ export default function HeaderComponent() {
 					backgroundColor: 'rgba(0,0,0,1)',
 					borderRadius: 17,
 					width: '50%',
-					height: '42%',
+					height: height,
 					position: 'absolute',
 					top: 100,
 					left: 40,
@@ -74,7 +75,7 @@ export default function HeaderComponent() {
 					backgroundColor: 'rgba(0,0,0,1)',
 					borderRadius: 17,
 					width: '50%',
-					height: '45%',
+					height: height,
 					position: 'absolute',
 					top: 100,
 					left: 150,

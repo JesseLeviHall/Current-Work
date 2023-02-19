@@ -314,7 +314,7 @@ export default function ProfileUpdate() {
 									</Modal>
 								</Portal>
 								<Button
-									className='grid-cols-1 self-center w-64 h-10 mt-12 bg-stone-900'
+									className={`grid-cols-1 self-center w-64 h-10 mt-12 bg-stone-900 android:text-white`}
 									mode='contained'
 									onPress={showModal}>
 									Edit
