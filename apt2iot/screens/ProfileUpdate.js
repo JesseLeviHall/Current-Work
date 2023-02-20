@@ -320,6 +320,7 @@ export default function ProfileUpdate() {
 											items={data}
 											defaultValue={'state'}
 											setOpen={setOpen}
+											autoScroll={true}
 											open={open}
 											dropDownContainerStyle={{
 												position: 'absolute',
