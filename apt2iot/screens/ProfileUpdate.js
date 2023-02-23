@@ -82,7 +82,7 @@ export default function ProfileUpdate() {
 		}
 	};
 
-	//send photo upload fix android
+	//send photo upload
 	const pickImage = async () => {
 		let result = await ImagePicker.launchImageLibraryAsync({
 			mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -90,8 +90,9 @@ export default function ProfileUpdate() {
 			aspect: [1, 1],
 			quality: 1,
 		});
-		if (!result.canceled) {
+		if (result.assets[0].uri) {
 			try {
+				console.log('result:', result.assets[0].uri);
 				setLoading(true);
 				// Resize the image
 				const newImage = await ImageManipulator.manipulateAsync(
@@ -99,19 +100,24 @@ export default function ProfileUpdate() {
 					[{ resize: { width: 100, height: 100 } }],
 					{ format: ImageManipulator.SaveFormat.PNG }
 				);
+				const fileName = result.assets[0].fileName || 'newPhoto.png';
 				const file = {
 					uri: newImage.uri,
 					type: 'image/png',
-					name: result.assets[0].fileName,
+					name: fileName,
 				};
 				const photoData = new FormData();
 				photoData.append('photo', file);
 				await api.uploadProfilePhoto(photoData);
-				getPhoto();
+				setPhotoBlob(result.assets[0].uri);
+				setLoading(false);
 			} catch (error) {
 				console.log(error);
 				setLoading(false);
 			}
+		} else {
+			setLoading(false);
+			return;
 		}
 	};
 
