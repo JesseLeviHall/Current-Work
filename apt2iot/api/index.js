@@ -133,14 +133,18 @@ export const getProfilePhoto = async () => {
 			return null;
 		}
 	} catch (error) {
-		console.log('OH NO, NO PHOTO', error.message);
+		console.log('Error Getting blob or something', error.message);
 	}
 };
 
 //upload profile photo
 export const uploadProfilePhoto = async (photoData) => {
 	try {
-		const { status, data } = await API.post('/api/profile/photo', photoData);
+		const { status, data } = await API.post('/api/profile/photo', photoData, {
+			headers: {
+				'Content-Type': 'multipart/form-data',
+			},
+		});
 		if (status === 200) {
 			return data.message;
 		} else {
@@ -148,6 +152,10 @@ export const uploadProfilePhoto = async (photoData) => {
 			return null;
 		}
 	} catch (error) {
-		console.log('Error sending blob or something', error.message);
+		console.log(
+			'Error sending blob or something',
+			error.message,
+			error.response.data
+		);
 	}
 };

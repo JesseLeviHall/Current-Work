@@ -92,8 +92,7 @@ export default function ProfileUpdate() {
 		});
 		if (result.assets[0].uri) {
 			try {
-				console.log('result:', result.assets[0].uri);
-				setLoading(true);
+				setPhotoBlob(result.assets[0].uri);
 				// Resize the image
 				const newImage = await ImageManipulator.manipulateAsync(
 					result.assets[0].uri,
@@ -109,8 +108,6 @@ export default function ProfileUpdate() {
 				const photoData = new FormData();
 				photoData.append('photo', file);
 				await api.uploadProfilePhoto(photoData);
-				setPhotoBlob(result.assets[0].uri);
-				setLoading(false);
 			} catch (error) {
 				console.log(error);
 				setLoading(false);
