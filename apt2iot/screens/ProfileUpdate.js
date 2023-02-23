@@ -82,7 +82,7 @@ export default function ProfileUpdate() {
 		}
 	};
 
-	//send photo upload
+	//send photo upload fix android
 	const pickImage = async () => {
 		let result = await ImagePicker.launchImageLibraryAsync({
 			mediaTypes: ImagePicker.MediaTypeOptions.Images,
